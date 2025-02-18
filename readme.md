@@ -388,5 +388,176 @@ La **infraestructura** incluye los componentes externos que la aplicación neces
     │── README.md                                
 
 ```
-python -m venv venv
-source venv/bin/activate
+
+
+# Configuración y Uso
+
+### 1. Configuración en Entorno Local
+
+#### 1. Clonar el Repositorio
+```bash
+ git clone https://github.com/tu_usuario/zebrands.git
+ cd zebrands
+```
+
+#### 2. Crear y Activar un Entorno Virtual
+```bash
+python3 -m venv venv
+source venv/bin/activate  # En Linux/macOS
+venv\Scripts\activate  # En Windows
+```
+
+#### 3. Instalar Dependencias
+```bash
+pip install -r requirements.txt
+```
+
+#### 4. Configurar Variables de Entorno
+Renombra el archivo de ejemplo `.env.example` a `.env` y modifica las variables según tu configuración.
+```bash
+cp .env.example .env
+```
+
+Ejemplo de configuración en `.env`:
+```
+DJANGO_SECRET_KEY=tu_secreto
+DJANGO_DEBUG=True
+DATABASE_URL=mysql://usuario:password@localhost:3306/zebrands_db
+EMAIL_HOST=smtp.sendgrid.net
+EMAIL_PORT=587
+EMAIL_HOST_USER=apikey
+EMAIL_HOST_PASSWORD=tu_api_key_sendgrid
+```
+
+#### 5. Configurar la Base de Datos
+Ejecuta las migraciones:
+```bash
+python manage.py migrate
+```
+
+Si deseas cargar datos de prueba:
+```bash
+python manage.py loaddata fixtures/fixtures.json
+```
+
+#### 6. Crear un Superusuario (Opcional)
+```bash
+python manage.py createsuperuser
+```
+
+#### 7. Iniciar el Servidor Local
+```bash
+python manage.py runserver
+```
+El servidor estará disponible en `http://127.0.0.1:8000/`.
+
+---
+
+### 2. Configuración con Docker
+
+#### 1. Clonar el Repositorio
+```bash
+git clone https://github.com/tu_usuario/zebrands.git
+cd zebrands
+```
+
+#### 2. Crear el Archivo `.env`
+```bash
+cp .env.example .env
+```
+Modifica las variables de entorno según tu configuración.
+
+#### 3. Construir y Levantar los Contenedores
+```bash
+docker-compose up --build
+```
+Esto iniciará los contenedores de **Django** y **MySQL**.
+
+#### 4. Aplicar Migraciones y Cargar Fixtures
+```bash
+docker-compose exec web python manage.py migrate
+docker-compose exec web python manage.py loaddata fixtures/fixtures.json
+```
+
+#### 5. Crear un Superusuario (Opcional)
+```bash
+docker-compose exec web python manage.py createsuperuser
+```
+
+#### 6. Acceder a la Aplicación
+- API disponible en: `http://localhost:8000/`
+- Panel de administración en: `http://localhost:8000/admin/`
+
+Para detener los contenedores:
+```bash
+docker-compose down
+```
+
+---
+
+### Endpoints Principales
+
+| Método | Endpoint | Descripción |
+|--------|---------|-------------|
+| GET | `/api/products/` | Listar productos |
+| GET | `/api/products/{id}/` | Obtener detalles de un producto |
+| POST | `/api/products/` | Crear un producto (Admin) |
+| PATCH | `/api/products/{id}/toggle_active/` | Activar/Desactivar producto |
+| GET | `/api/logs/` | Ver registros de auditoría |
+
+Para más detalles sobre los endpoints, visita `http://localhost:8000/swagger/`.
+
+---
+
+### Configuración de Correos con SendGrid
+Si estás usando **SendGrid** para enviar correos electrónicos:
+
+1. Crea una cuenta en [SendGrid](https://sendgrid.com/).
+2. Obtén una **API Key** en la configuración de SendGrid.
+3. Asegúrate de agregar la API Key en el archivo `.env`:
+   ```
+   EMAIL_HOST=smtp.sendgrid.net
+   EMAIL_PORT=587
+   EMAIL_HOST_USER=apikey
+   EMAIL_HOST_PASSWORD=tu_api_key_sendgrid
+   DEFAULT_FROM_EMAIL=correo_verificado@tudominio.com
+   ```
+4. Para probar el envío de emails:
+   ```bash
+   docker-compose exec web python manage.py shell
+   >>> from django.core.mail import send_mail
+   >>> send_mail('Asunto', 'Mensaje de prueba', 'tu_correo@dominio.com', ['destinatario@correo.com'])
+   ```
+
+---
+
+## Troubleshooting
+
+### Error: `gunicorn: executable file not found in $PATH`
+Si ves este error al ejecutar `docker-compose up`, asegúrate de que `gunicorn` está en `requirements.txt` y vuelve a construir la imagen:
+```bash
+docker-compose build --no-cache
+docker-compose up
+```
+
+### Error: `bind: address already in use` en MySQL
+Si el puerto `3306` ya está en uso, detén cualquier proceso MySQL en tu máquina:
+```bash
+sudo systemctl stop mysql
+```
+Luego, reinicia los contenedores:
+```bash
+docker-compose down -v
+docker-compose up --build
+```
+
+### Error: `No se pudo cargar el fixture`
+Si los fixtures no se cargan correctamente, revisa si el archivo `fixtures/fixtures.json` existe y es válido:
+```bash
+cat fixtures/fixtures.json | jq .
+```
+Si hay un error, intenta exportar de nuevo los datos:
+```bash
+python manage.py dumpdata --natural-foreign --natural-primary --indent 2 -o fixtures/fixtures.json
+```
+
