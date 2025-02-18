@@ -1,0 +1,50 @@
+services:
+  - type: web
+    name: django-app
+    runtime: docker
+    repo: https://github.com/jramos54/zebrands.git  # Reemplaza con tu repo
+    branch: master  # O la rama que uses
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: config.settings
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: MYSQL_DATABASE
+        fromDatabase:
+          name: mysql-db
+          property: database
+      - key: MYSQL_USER
+        fromDatabase:
+          name: mysql-db
+          property: user
+      - key: MYSQL_PASSWORD
+        fromDatabase:
+          name: mysql-db
+          property: password
+      - key: MYSQL_HOST
+        fromDatabase:
+          name: mysql-db
+          property: host
+      - key: MYSQL_PORT
+        fromDatabase:
+          name: mysql-db
+          property: port
+    healthCheckPath: "/healthz"
+    disk:
+      name: app-data
+      mountPath: /app/static
+      sizeGB: 5
+    scaling:
+      minInstances: 1
+      maxInstances: 3
+      targetCPUPercent: 60
+      targetMemoryPercent: 60
+    autoDeploy: true
+
+databases:
+  - name: mysql-db
+    plan: free
+    databaseName: zebrands  # Nombre de la base de datos
+    user: zebrandsuser
+    ipAllowList: []  # Solo permite conexiones internas
