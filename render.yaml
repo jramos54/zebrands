@@ -2,8 +2,8 @@ services:
   - type: web
     name: django-app
     runtime: docker
-    repo: https://github.com/jramos54/zebrands.git  # Reemplaza con tu repo
-    branch: master  # O la rama que uses
+    repo: https://github.com/jramos54/zebrands.git  
+    branch: master 
     dockerfilePath: ./Dockerfile
     envVars:
       - key: DJANGO_SETTINGS_MODULE
@@ -45,6 +45,6 @@ services:
 databases:
   - name: mysql-db
     plan: free
-    databaseName: zebrands  # Nombre de la base de datos
+    databaseName: zebrands  
     user: zebrandsuser
-    ipAllowList: []  # Solo permite conexiones internas
+    ipAllowList: [] 
