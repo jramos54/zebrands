@@ -1,20 +1,8 @@
 version: "3.8"
 
 services:
-  web:
-    build: .
-    command: gunicorn config.wsgi:application --bind 0.0.0.0:8000 --workers=4
-    volumes:
-      - .:/app
-    ports:
-      - "8000:8000"
-    depends_on:
-      - db
-    env_file:
-      - .env  
-
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     restart: always
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
@@ -25,6 +13,24 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  web:
+    build: .
+    command: ["/app/entrypoint.sh"]  
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - .env
 
 volumes:
   mysql_data:

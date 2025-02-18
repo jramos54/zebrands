@@ -19,7 +19,6 @@ class LogRepositoryImpl:
         """Obtiene los logs de la base de datos aplicando filtros."""
         logs_queryset = LogModel.objects.all()
 
-        # Aplica los filtros dinámicamente
         if "user_id" in filters:
             logs_queryset = logs_queryset.filter(admin_id=filters["user_id"])
         if "product_id" in filters:

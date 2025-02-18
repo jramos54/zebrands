@@ -388,7 +388,15 @@ La **infraestructura** incluye los componentes externos que la aplicación neces
     │── README.md                                
 
 ```
+# Configuración en Postman
 
+Para realizar pruebas en Postman, asegúrate de agregar ambas URLs:
+
+URL Local: http://127.0.0.1:8000/
+
+URL en Render: https://zebrands.onrender.com/
+
+Usa estas URLs para configurar tus solicitudes en Postman y probar la API.
 
 # Configuración y Uso
 

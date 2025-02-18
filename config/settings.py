@@ -84,16 +84,15 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv("MYSQL_DATABASE", "django_db"),
-        "USER": os.getenv("MYSQL_USER", "django_user"),
-        "PASSWORD": os.getenv("MYSQL_PASSWORD", "django_pass"),
-        "HOST": os.getenv("MYSQL_HOST", "db"),  
-        "PORT": os.getenv("MYSQL_PORT", "3306"),
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('MYSQL_DATABASE', 'zebrands'),
+        'USER': os.getenv('MYSQL_USER', 'zebrandsuser'),
+        'PASSWORD': os.getenv('MYSQL_PASSWORD', '123456'),
+        'HOST': os.getenv('MYSQL_HOST', 'db'),  
+        'PORT': os.getenv('MYSQL_PORT', '3306'),  
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -148,7 +147,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),  #
+]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+
+if not DEBUG:
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -157,24 +168,32 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = os.getenv("CORS_ALLOWED_ORIGINS", "http://localhost:3000").split()
 
 SWAGGER_SETTINGS = {
-    "SECURITY_DEFINITIONS": {
-        "Bearer": {
-            "type": "apiKey",
-            "name": "Authorization",
-            "in": "header",
+    'USE_SESSION_AUTH': False,  
+    'SECURITY_DEFINITIONS': {  
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
         }
-    }
+    },
+    'LOGIN_URL': None,  
+    'LOGOUT_URL': None,
+    'PERSIST_AUTH': True,  
+    'REFETCH_SCHEMA_WITH_AUTH': True,
 }
+
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend" 
 EMAIL_HOST = "smtp.sendgrid.net"  
 EMAIL_PORT = 587  
 EMAIL_USE_TLS = True  
 EMAIL_HOST_USER = "apikey"  
-SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY", "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")  # Usa tu API Key aquí
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 DEFAULT_FROM_EMAIL = "test.backend.jrm@gmail.com" 
 
 
 AUTH_USER_MODEL = "api.User"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+SESSION_ENGINE = "django.contrib.sessions.backends.db"

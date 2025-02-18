@@ -31,7 +31,6 @@ class LoginView(APIView):
             )
 
             if user:
-                # Generar access y refresh tokens
                 refresh = RefreshToken.for_user(user)
                 return Response({
                     "access_token": str(refresh.access_token),

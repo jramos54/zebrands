@@ -24,7 +24,7 @@ class AuthServiceImpl(AuthService):
     def login(self, username: str, password: str) -> Optional[str]:
         """Autentica al usuario y devuelve un token JWT."""
         user = self.user_repo.get_by_email(username)
-        if user and user.password == password:  # Debería ser un hash real
+        if user and user.password == password: 
             payload = {
                 "user_id": user.id,
                 "exp": datetime.datetime.utcnow() + datetime.timedelta(minutes=5),

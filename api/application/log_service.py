@@ -27,15 +27,15 @@ class LogService:
             target_id=target_id,
             action=action,
             changes=changes,
-            created_at=datetime.utcnow(),  # Usa datetime.utcnow() en lugar de datetime.datetime.utcnow()
+            created_at=datetime.utcnow(),  
         )
         self.log_repo.save(log_entry)
-        return log_entry  # Devuelve el log creado
+        return log_entry  
 
     def list_logs(self, filters: dict) -> List[LogEntry]:
         """Obtiene una lista de registros filtrados."""
         logs = self.log_repo.get_logs(filters)
-        return logs if logs else []  # Evita devolver None
+        return logs if logs else [] 
 
     def get_anonymous_queries(self, product_id=None):
         """Obtiene el número de consultas realizadas por usuarios anónimos para un producto específico o todos."""

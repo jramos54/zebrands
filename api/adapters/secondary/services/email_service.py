@@ -13,10 +13,10 @@ class NotificationService:
 class EmailService(NotificationService):
     """Implementación del servicio de notificaciones por correo electrónico."""
 
-    def send_email(self, to_email, subject, message):  # 
+    def send_email(self, to_email, subject, message):   
         """Envía un correo electrónico usando SendGrid API."""
         try:
-            print(f"Intentando enviar correo a {to_email} con asunto: {subject}")  # Debug
+            print(f"Intentando enviar correo a {to_email} con asunto: {subject}")  
 
             email_message = Mail(
                 from_email=settings.DEFAULT_FROM_EMAIL,
@@ -25,11 +25,11 @@ class EmailService(NotificationService):
                 html_content=f"<p>{message}</p>",
             )
 
-            sg = SendGridAPIClient(settings.SENDGRID_API_KEY)  # Y
+            sg = SendGridAPIClient(settings.SENDGRID_API_KEY) 
             response = sg.send(email_message)
 
-            print(f"Correo enviado, código de respuesta: {response.status_code}")  # Debug
+            print(f"Correo enviado, código de respuesta: {response.status_code}")  
             return response.status_code == 202  
         except Exception as e:
-            print(f"Error enviando email: {e}")  # Debug
+            print(f"Error enviando email: {e}")  
             return False
