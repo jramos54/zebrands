@@ -1,0 +1,473 @@
+[
+{
+    "model": "api.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$0s0bW6fpQAPoSyIvy2EY85$BS7/yXK7tgD9sioZKuy5VOJ+mYl24U1T1sKJoIPY0S4=",
+        "last_login": "2025-02-16T20:13:59Z",
+        "is_superuser": true,
+        "username": "jramos",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": true,
+        "date_joined": "2025-02-16T16:40:23Z",
+        "email": "jrmsmolina54@gmail.com",
+        "is_active": true,
+        "role": "super_admin",
+        "created_by": null,
+        "updated_by": null,
+        "token": null,
+        "created_at": "2025-02-16T22:35:09.967Z",
+        "updated_at": "2025-02-16T22:35:10.052Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.user",
+    "pk": 2,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$cISOEYCyZVn46vnqlwTUAR$A2DqK7mShyFzcU0+eH/C1ptTDSB6YNaKKEBSPi8adfM=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "zebrands",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2025-02-16T22:38:30.815Z",
+        "email": "zebrands@empresa.com",
+        "is_active": true,
+        "role": "admin",
+        "created_by": null,
+        "updated_by": null,
+        "token": null,
+        "created_at": "2025-02-16T22:38:30.816Z",
+        "updated_at": "2025-02-16T22:38:30.816Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.user",
+    "pk": 3,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$iG791BA0N1S7SX3Wihj1zR$82m3DBOf1n8gVaPLSB1ZnMfHEz48pq//7ik0dMoC//g=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "anonymus01",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2025-02-16T22:45:37.959Z",
+        "email": "anonymus01@zebrands.com",
+        "is_active": true,
+        "role": "anonymus",
+        "created_by": null,
+        "updated_by": null,
+        "token": null,
+        "created_at": "2025-02-16T22:45:37.960Z",
+        "updated_at": "2025-02-16T22:45:37.960Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.user",
+    "pk": 5,
+    "fields": {
+        "password": "pbkdf2_sha256$870000$cea3W8EbioZQ4d3fSlHQXg$cxsgeoMzxz2p1c+yAg0JKEOwLg0NGoBGGJxa7Sw4J38=",
+        "last_login": null,
+        "is_superuser": false,
+        "username": "anonymus02",
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "date_joined": "2025-02-16T22:47:05.782Z",
+        "email": "anonymus02@zebrands.com",
+        "is_active": true,
+        "role": "anonymus",
+        "created_by": null,
+        "updated_by": null,
+        "token": null,
+        "created_at": "2025-02-16T22:47:05.782Z",
+        "updated_at": "2025-02-16T22:47:05.782Z",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 1,
+    "fields": {
+        "sku": "PROD002",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T22:58:09.213Z",
+        "updated_at": "2025-02-16T22:58:09.213Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 3,
+    "fields": {
+        "sku": "PROD003",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T22:59:46.640Z",
+        "updated_at": "2025-02-16T22:59:46.640Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 5,
+    "fields": {
+        "sku": "PROD004",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:02:49.608Z",
+        "updated_at": "2025-02-16T23:02:49.608Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 7,
+    "fields": {
+        "sku": "PROD005",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:03:42.967Z",
+        "updated_at": "2025-02-16T23:03:42.967Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 10,
+    "fields": {
+        "sku": "PROD006",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:04:49.782Z",
+        "updated_at": "2025-02-16T23:04:49.782Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 16,
+    "fields": {
+        "sku": "PRO20o2",
+        "name": "Laptop G2mer",
+        "price": "250010.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 201,
+        "short_description": "Laptop para gaming y edición",
+        "long_description": "Intel Core i9, 32GB RAM, 1TB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:16:54.171Z",
+        "updated_at": "2025-02-17T23:51:06.150Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 17,
+    "fields": {
+        "sku": "PROD0108",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:31:44.262Z",
+        "updated_at": "2025-02-17T23:31:44.262Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 19,
+    "fields": {
+        "sku": "PROD0208",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:35:02.070Z",
+        "updated_at": "2025-02-17T23:35:02.070Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 21,
+    "fields": {
+        "sku": "PROD0218",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:38:15.253Z",
+        "updated_at": "2025-02-17T23:38:15.253Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 23,
+    "fields": {
+        "sku": "PROD0318",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:50:21.985Z",
+        "updated_at": "2025-02-17T23:50:21.985Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 1,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "created",
+        "changes": {},
+        "created_at": "2025-02-16T23:16:54.180Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 2,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "updated",
+        "changes": {},
+        "created_at": "2025-02-16T23:25:03.404Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 3,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "deactivated",
+        "changes": {},
+        "created_at": "2025-02-17T19:32:41.470Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 4,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "activated",
+        "changes": {},
+        "created_at": "2025-02-17T19:33:02.277Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 5,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "stock_updated",
+        "changes": {},
+        "created_at": "2025-02-17T19:36:43.568Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 6,
+    "fields": {
+        "admin": null,
+        "target_id": 16,
+        "action": "price_updated",
+        "changes": {},
+        "created_at": "2025-02-17T19:39:19.545Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 7,
+    "fields": {
+        "admin": null,
+        "target_id": 14,
+        "action": "deleted",
+        "changes": {},
+        "created_at": "2025-02-17T19:44:48.318Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 8,
+    "fields": {
+        "admin": 2,
+        "target_id": 17,
+        "action": "created",
+        "changes": {},
+        "created_at": "2025-02-17T23:31:44.272Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 9,
+    "fields": {
+        "admin": 2,
+        "target_id": 19,
+        "action": "created",
+        "changes": {},
+        "created_at": "2025-02-17T23:35:02.077Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 10,
+    "fields": {
+        "admin": 2,
+        "target_id": 21,
+        "action": "created",
+        "changes": {},
+        "created_at": "2025-02-17T23:38:15.262Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 11,
+    "fields": {
+        "admin": 2,
+        "target_id": 23,
+        "action": "created",
+        "changes": {},
+        "created_at": "2025-02-17T23:50:21.991Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 12,
+    "fields": {
+        "admin": 2,
+        "target_id": 16,
+        "action": "updated",
+        "changes": {},
+        "created_at": "2025-02-17T23:50:37.904Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 13,
+    "fields": {
+        "admin": 2,
+        "target_id": 16,
+        "action": "deactivated",
+        "changes": {},
+        "created_at": "2025-02-17T23:50:47.869Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 14,
+    "fields": {
+        "admin": 2,
+        "target_id": 16,
+        "action": "activated",
+        "changes": {},
+        "created_at": "2025-02-17T23:50:53.903Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 15,
+    "fields": {
+        "admin": 2,
+        "target_id": 16,
+        "action": "stock_updated",
+        "changes": {},
+        "created_at": "2025-02-17T23:50:59.518Z"
+    }
+},
+{
+    "model": "api.logmodel",
+    "pk": 16,
+    "fields": {
+        "admin": 2,
+        "target_id": 16,
+        "action": "price_updated",
+        "changes": {},
+        "created_at": "2025-02-17T23:51:06.157Z"
+    }
+},
+{
+    "model": "api.productquery",
+    "pk": 1,
+    "fields": {
+        "product_id": 16,
+        "user": 3,
+        "query_count": 11
+    }
+}
+]

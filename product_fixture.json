@@ -1,0 +1,173 @@
+[
+{
+    "model": "api.productmodel",
+    "pk": 1,
+    "fields": {
+        "sku": "PROD002",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T22:58:09.213Z",
+        "updated_at": "2025-02-16T22:58:09.213Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 3,
+    "fields": {
+        "sku": "PROD003",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T22:59:46.640Z",
+        "updated_at": "2025-02-16T22:59:46.640Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 5,
+    "fields": {
+        "sku": "PROD004",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:02:49.608Z",
+        "updated_at": "2025-02-16T23:02:49.608Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 7,
+    "fields": {
+        "sku": "PROD005",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:03:42.967Z",
+        "updated_at": "2025-02-16T23:03:42.967Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 10,
+    "fields": {
+        "sku": "PROD006",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:04:49.782Z",
+        "updated_at": "2025-02-16T23:04:49.782Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 16,
+    "fields": {
+        "sku": "PROD0o2",
+        "name": "Laptop Gamer",
+        "price": "25000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop para gaming y edición",
+        "long_description": "Intel Core i9, 32GB RAM, 1TB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-16T23:16:54.171Z",
+        "updated_at": "2025-02-17T19:39:19.536Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 17,
+    "fields": {
+        "sku": "PROD0108",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:31:44.262Z",
+        "updated_at": "2025-02-17T23:31:44.262Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 19,
+    "fields": {
+        "sku": "PROD0208",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:35:02.070Z",
+        "updated_at": "2025-02-17T23:35:02.070Z",
+        "created_by": null,
+        "updated_by": null
+    }
+},
+{
+    "model": "api.productmodel",
+    "pk": 21,
+    "fields": {
+        "sku": "PROD0218",
+        "name": "Laptop",
+        "price": "15000.00",
+        "brand": "Dell",
+        "category": "Computadoras",
+        "stock": 20,
+        "short_description": "Laptop potente para trabajo y gaming",
+        "long_description": "Intel Core i7, 16GB RAM, 512GB SSD...",
+        "is_active": true,
+        "created_at": "2025-02-17T23:38:15.253Z",
+        "updated_at": "2025-02-17T23:38:15.253Z",
+        "created_by": null,
+        "updated_by": null
+    }
+}
+]

@@ -1,0 +1,64 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+env/
+*.egg-info/
+*.log
+
+# Django
+db.sqlite3
+*.pyc
+*.pyo
+*.pyd
+migrations/*  # Excluye todas las migraciones excepto __init__.py
+!migrations/__init__.py
+
+# Virtual Environments
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Logs & Debugging
+debug.log
+*.log
+nohup.out
+
+# Secrets & Configurations
+.env
+*.pem
+config/settings_local.py
+
+# Static & Media Files
+staticfiles/
+media/
+static/
+uploads/
+
+# IDE & Editor Configs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+*.pid
+docker-compose.override.yml
+
+# Coverage & Testing
+htmlcov/
+.tox/
+.nox/
+.coverage
+.cache
+.pytest_cache/
+junit.xml
+nosetests.xml
+coverage.xml
+*.cover
+*.pyc
+
+# Build / Dist
+build/
+dist/

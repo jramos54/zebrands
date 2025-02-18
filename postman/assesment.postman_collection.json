@@ -1,0 +1,602 @@
+{
+	"info": {
+		"_postman_id": "81ee96bb-7ba6-4f83-89fe-0b9470c82992",
+		"name": "assesment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27477653",
+		"_collection_link": "https://blue-eclipse-617898.postman.co/workspace/zebrands~adcb432e-43bc-4988-9726-ab5adcf3de29/collection/27477653-81ee96bb-7ba6-4f83-89fe-0b9470c82992?action=share&source=collection_link&creator=27477653"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Verifica si la respuesta es exitosa (código 200)\r",
+									"if (pm.response.code === 200) {\r",
+									"    // Extrae el token de la respuesta JSON\r",
+									"    var jsonData = pm.response.json();\r",
+									"    \r",
+									"    // Verifica si los tokens están presentes en la respuesta\r",
+									"    if (jsonData.access_token && jsonData.refresh_token) {\r",
+									"        // Guarda los tokens en variables de entorno\r",
+									"        pm.environment.set(\"access_token\", jsonData.access_token);\r",
+									"        pm.environment.set(\"refresh_token\", jsonData.refresh_token);\r",
+									"        \r",
+									"        // Muestra un mensaje en la consola de Postman\r",
+									"        console.log(\"Access Token guardado: \" + jsonData.access_token);\r",
+									"        console.log(\"Refresh Token guardado: \" + jsonData.refresh_token);\r",
+									"    } else {\r",
+									"        console.error(\"Los tokens no están presentes en la respuesta.\");\r",
+									"    }\r",
+									"} else {\r",
+									"    // Si la respuesta no es exitosa, muestra un mensaje de error\r",
+									"    console.error(\"Error al obtener el token: \" + pm.response.text());\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"username\": \"zebrands\",\r\n    // \"username\": \"anonymus01\",\r\n    \"password\": \"pass123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/login/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": \"{{refresh_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/logout/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"refresh_token\": {{refresh_token}}\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/refresh/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"refresh",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "products",
+			"item": [
+				{
+					"name": "Consulta_Productos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/products/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								""
+							],
+							"query": [
+								{
+									"key": "category",
+									"value": "electronica",
+									"disabled": true
+								},
+								{
+									"key": "price_min",
+									"value": "1000",
+									"disabled": true
+								},
+								{
+									"key": "price_max",
+									"value": "5000",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Detalle_Producto",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/products/16",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"16"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Creación_Producto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"PROD0318\",\r\n    \"name\": \"Laptop\",\r\n    \"price\": 15000,\r\n    \"brand\": \"Dell\",\r\n    \"category\": \"Computadoras\",\r\n    \"stock\": 20,\r\n    \"short_description\": \"Laptop potente para trabajo y gaming\",\r\n    \"long_description\": \"Intel Core i7, 16GB RAM, 512GB SSD...\",\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Actualización_Completa_Producto",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"sku\": \"PRO20o2\",\r\n    \"name\": \"Laptop G2mer\",\r\n    \"price\": 17000,\r\n    \"brand\": \"Dell\",\r\n    \"category\": \"Computadoras\",\r\n    \"stock\": 15,\r\n    \"short_description\": \"Laptop para gaming y edición\",\r\n    \"long_description\": \"Intel Core i9, 32GB RAM, 1TB SSD...\",\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/16/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"16",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Estado_Producto",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/16/toggle_active/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"16",
+								"toggle_active",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "actualiza_stock",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"stock\": 201\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/16/update_stock/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"16",
+								"update_stock",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Modificar_Precio",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\": 250010\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/products/16/update_price/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"16",
+								"update_price",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar_Producto",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/products/14/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"products",
+								"14",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "logs",
+			"item": [
+				{
+					"name": "Consultar_Logs",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logs/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logs",
+								""
+							],
+							"query": [
+								{
+									"key": "user_id",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "action",
+									"value": "created",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log por ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logs/16/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logs",
+								"16",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Log por IDproduct by anonymus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/logs/anonymous-queries/?product_id=16",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"logs",
+								"anonymous-queries",
+								""
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "16"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "Consultar_Usuarios",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Usuario_ID",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/users/2/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear_Usuario",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{access_token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"anonymus02\",\r\n    \"password\": \"pass123\",\r\n    \"email\": \"anonymus02@zebrands.com\",\r\n    \"role\": \"anonymus\",\r\n    \"is_active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/users/",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
